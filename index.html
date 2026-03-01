@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PAROLA - Wordle Italiano</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PAROLA</h1>
+            <button class="info-btn" id="infoBtn">ℹ️</button>
+            <button class="stats-btn" id="statsBtn">📊</button>
+        </header>
+
+        <!-- Info Modal -->
+        <div class="modal" id="infoModal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Come Giocare</h2>
+                <p>Indovina la PAROLA in 6 tentativi.</p>
+                <p>Ogni tentativo deve essere una parola valida di 5 lettere.</p>
+                <p>Dopo ogni tentativo, il colore delle caselle cambierà per mostrare quanto la tua ipotesi era vicina alla parola.</p>
+                
+                <div class="examples">
+                    <h3>Esempi</h3>
+                    <div class="example-row">
+                        <div class="tile correct">C</div>
+                        <div class="tile">A</div>
+                        <div class="tile">S</div>
+                        <div class="tile">A</div>
+                        <div class="tile">L</div>
+                    </div>
+                    <p>La lettera <strong>C</strong> è nella parola e nel posto corretto.</p>
+
+                    <div class="example-row">
+                        <div class="tile">M</div>
+                        <div class="tile present">O</div>
+                        <div class="tile">N</div>
+                        <div class="tile">T</div>
+                        <div class="tile">E</div>
+                    </div>
+                    <p>La lettera <strong>O</strong> è nella parola ma nel posto sbagliato.</p>
+
+                    <div class="example-row">
+                        <div class="tile">V</div>
+                        <div class="tile">E</div>
+                        <div class="tile">N</div>
+                        <div class="tile absent">T</div>
+                        <div class="tile">O</div>
+                    </div>
+                    <p>La lettera <strong>T</strong> non è nella parola.</p>
+                </div>
+
+                <p><strong>Una nuova PAROLA ogni giorno!</strong></p>
+            </div>
+        </div>
+
+        <!-- Stats Modal -->
+        <div class="modal" id="statsModal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Statistiche</h2>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-value" id="gamesPlayed">0</div>
+                        <div class="stat-label">Giocate</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value" id="winRate">0</div>
+                        <div class="stat-label">% Vittorie</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value" id="currentStreak">0</div>
+                        <div class="stat-label">Serie Attuale</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value" id="maxStreak">0</div>
+                        <div class="stat-label">Serie Massima</div>
+                    </div>
+                </div>
+                <div id="shareSection" style="display: none;">
+                    <button class="share-btn" id="shareBtn">Condividi 📋</button>
+                    <div id="shareMessage" style="display: none; margin-top: 10px; color: #538d4e;">Copiato negli appunti!</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Board -->
+        <div class="game-board" id="board"></div>
+
+        <!-- Message -->
+        <div class="message" id="message"></div>
+
+        <!-- Keyboard -->
+        <div class="keyboard" id="keyboard"></div>
+    </div>
+
+    <footer>
+        <p>Ispirato a Wordle | Made with ❤️ in Italia</p>
+    </footer>
+
+    <script src="words.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
